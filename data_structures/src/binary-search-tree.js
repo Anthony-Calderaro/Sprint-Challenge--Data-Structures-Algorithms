@@ -7,7 +7,11 @@ class BinarySearchTree {
 
   depthFirstForEach(cb) {
     /* Your code here */
-    
+    // start at root
+    // Determine which side has the deepest node - go as far as possible to that node 
+    // then go up and to 
+    // repeat for each node left of the root
+    // repeat on each node right of the root
   }
 
   breadthFirstForEach(cb) {
