@@ -7,15 +7,23 @@ class BinarySearchTree {
 
   depthFirstForEach(cb) {
     /* Your code here */
-    // start at root
-    // Determine which side has the deepest node - go as far as possible to that node 
-    // then go up and to 
-    // repeat for each node left of the root
-    // repeat on each node right of the root
+    cb(this.value);
+    if (this.left) {
+      this.left.depthFirstForEach(cb);
+    }
+    if (this.right) {
+      this.right.depthFirstForEach(cb);
+    }
   }
 
   breadthFirstForEach(cb) {
     /* Your code here */
+    let nodes = [this];
+    for (let i = 0; i < nodes.length; i++) {
+      if(nodes[i].left) nodes.push(nodes[i].left);
+      if(nodes[i].right) nodes.push(nodes[i].right);
+      cb(nodes[i].value);
+}
 
   }
 
@@ -54,8 +62,10 @@ class BinarySearchTree {
   }
 
   getMax() {
-    if (!this) return null;
-
+    if (!this) {
+      return null;
+    }
+    
     let max = this.value;
     let current = this;
 
